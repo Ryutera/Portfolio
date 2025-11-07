@@ -56,6 +56,7 @@ const CanvasBackground = () => {
 
     })
 
+    
 
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 1)
@@ -64,12 +65,31 @@ const CanvasBackground = () => {
     //  const pointLight = new THREE.PointLight(0xffffff,300,30)
     //  scene.add(pointLight)
 
+
+const target = { x: 0, y: 0, };
+// 振れ幅（好みで調整）
+const strength = { x: 2.0, y: 1.5 };
+// 追従の滑らかさ（0〜1、小さいほどヌルッと）
+const smooth = 0.08;
+
+const onPointerMove = (e: PointerEvent) => {
+    // clientは0から画面幅px、画面の大きさに応じた数値を調整　-0,5は基準を中央にするため
+  const nx = e.clientX / window.innerWidth  
+  const ny = e.clientY / window.innerHeight
+  
+  target.x = nx * strength.x;
+  target.y = -ny * strength.y; // 視覚的に上へ動くよう反転
+};
+window.addEventListener("pointermove", onPointerMove, { passive: true });
+
+
     const tick = () => {
       renderer.render(scene, camera)
+    //   現在値から目標値に少しずつ近づける
+camera.position.x = THREE.MathUtils.lerp(camera.position.x, target.x, smooth);
+camera.position.y = THREE.MathUtils.lerp(camera.position.y, 5 + target.y, smooth);
 
-      if (mixer) {
-        mixer.update(0.01)
-      }
+    
       requestAnimationFrame(tick)
     }
     tick()
