@@ -1,65 +1,100 @@
-import Image from "next/image";
+"use client"
+import { useEffect } from 'react'
+import * as THREE from "three"
+import { GLTFLoader } from 'three/examples/jsm/Addons.js'
 
-export default function Home() {
+
+
+function App() {
+
+  useEffect(() => {
+
+    let model: THREE.Group
+    const canvas = document.getElementById("canvas") as HTMLCanvasElement
+    //scene 
+    const scene: THREE.Scene = new THREE.Scene()
+
+    const width = window.innerWidth
+    const height = window.innerHeight
+
+    //camera
+    const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
+      75, width / height, 0.1, 1000)
+
+    camera.position.set(0, 5, 9)
+
+
+    //renderer
+    const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      antialias: true,
+      alpha: true,
+    })
+
+    renderer.setSize(width, height)
+
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    //gltf 3dモデルインポート
+    const gltfLoader = new GLTFLoader()
+    let mixer: THREE.AnimationMixer
+
+    gltfLoader.load("./models/scene.gltf", (gltf) => {
+      model = gltf.scene
+      model.scale.set(2, 2, 2)
+
+      scene.add(model)
+
+
+      //アニメーション
+      mixer = new THREE.AnimationMixer(model)
+      const clips = gltf.animations;
+      clips.forEach(function (clip) {
+        const action = mixer.clipAction(clip)
+        action.play()
+      })
+
+
+    })
+
+
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1)
+    scene.add(ambientLight)
+
+    //  const pointLight = new THREE.PointLight(0xffffff,300,30)
+    //  scene.add(pointLight)
+
+    const tick = () => {
+      renderer.render(scene, camera)
+
+      if (mixer) {
+        mixer.update(0.01)
+      }
+      requestAnimationFrame(tick)
+    }
+    tick()
+
+  }, [])
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div >
+      <canvas id='canvas' className='h-[100%] relative bg-[linear-gradient(90deg,rgba(42,123,155,1)_0%,rgba(83,192,135,1)_45%,rgba(87,199,133,1)_50%,rgba(237,221,83,1)_100%)]' ></canvas>
+
+      <div className='mainContent absolute top-[40%] left-[10%] flex flex-col gap-10 text-white' >
+        <h1 className='text-6xl font-bold'>Ryusei Teramoto</h1>
+        <p className='text-2xl'>Web developer / Front-end engineer</p>
+      </div>
+
+      <div className="absolute bottom-[1%] right-[1%] text-gray-800">
+        <p className='text-xs '>
+          3D model: "Old Computers" by Rafael Rodrigues (CC BY 4.0)
+        </p>
+      </div>
+
     </div>
-  );
+  )
+
 }
+
+export default App
