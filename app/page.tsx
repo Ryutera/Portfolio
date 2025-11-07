@@ -1,6 +1,8 @@
 "use client"
 
 import CanvasBackground from '@/components/CanvasBackground';
+import Projects from '@/components/Projects';
+
 import { useState } from 'react';
 
 
@@ -14,13 +16,23 @@ function App() {
   
 
   const handleShowSkills = () => {
-    setSkills((prev) => !prev)
-    if (projects) {
+     if (projects) {
       setProjects(false)
     }
+    setSkills((prev) => !prev)
+   
   }
 
-  console.log(skills)
+  const handleShowProjects = ()=>{
+     if (skills) {
+      setSkills(false)
+    }
+    setProjects((prev)=>!prev)
+
+  }
+
+  console.log(skills,"s")
+    console.log(projects,"p")
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -35,14 +47,15 @@ function App() {
 
             <div className='text-white flex gap-10 mt-20 '>
               <button className='hover:cursor-pointer font-bold  opacity-[0.8]' onClick={handleShowSkills}>SKILLS</button>
-              <button className='hover:cursor-pointer font-bold  opacity-[0.8]'>PROJECTS</button>
+              <button className='hover:cursor-pointer font-bold  opacity-[0.8]' onClick={handleShowProjects}>PROJECTS</button>
             </div>
 
           </main>
 
 
           <div className='mt-[25%] ml-[40%]'>
-            {skills && <div className='text-white '>
+            {skills && 
+            <div className='text-white '>
               <h2 className='text-4xl mb-10 '>SKILLS</h2>
               {skillsList?.map((skill, index) => (
                 <ul key={index} className=''>
@@ -51,6 +64,16 @@ function App() {
                 </ul>
               ))}
             </div>}
+
+
+
+              {projects && 
+              <div className='text-white'>
+                 <h2 className='text-4xl'>PROJECTS</h2>
+                 <div className='mt-5'>
+                 <Projects />
+                 </div>
+                </div>}
 
           </div>
 
