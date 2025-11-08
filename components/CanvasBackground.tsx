@@ -24,7 +24,11 @@ const CanvasBackground = () => {
      // カメラ位置をデバイス別に設定
   const setCameraPosition = () => {
     if (window.innerWidth < 768) {
-      camera.position.set(0, 30, 20); // スマホ
+      camera.position.set(0,30, 18); // スマホ
+      camera.lookAt(0, 31, 0);
+      
+     
+
     } else {
       camera.position.set(0, 5, 9);  // PC
     }
@@ -54,7 +58,13 @@ const CanvasBackground = () => {
       model = gltf.scene
       model.scale.set(2, 2, 2)
       
+      
+  // 👇 ここでデバイスを判定
+  const isMobile = window.innerWidth < 768 // Tailwindでいうsm未満のサイズ
 
+  if (isMobile) {
+    model.position.y += -2.5  // スマホなら少し上げる
+  }
       scene.add(model)
 
 
