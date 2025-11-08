@@ -20,7 +20,19 @@ const CanvasBackground = () => {
     const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
       75, width / height, 0.1, 1000)
 
-    camera.position.set(0, 5, 9)
+
+     // カメラ位置をデバイス別に設定
+  const setCameraPosition = () => {
+    if (window.innerWidth < 768) {
+      camera.position.set(0, 30, 20); // スマホ
+    } else {
+      camera.position.set(0, 5, 9);  // PC
+    }
+    camera.updateProjectionMatrix();
+  };
+  
+  setCameraPosition();
+
 
 
     //renderer

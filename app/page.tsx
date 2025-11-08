@@ -42,13 +42,13 @@ function App() {
       <div className="relative z-10 h-screen">
 
 
-        <div className='grid grid-cols-2'>
+        <div className='grid sm:grid-cols-2'>
 
-          <main className="flex flex-col gap-15 mt-[35%] ml-[10%]  h-screens text-white">
-            <h1 className="text-6xl font-bold opacity-[0.8]">Ryusei Teramoto</h1>
-            <p className="text-2xl opacity-[0.7]">Web developer / Front-end engineer</p>
+          <main className="flex flex-col sm:gap-15 gap-5 mt-[15%] sm:mt-[35%] ml-[10%]  h-screens text-white">
+            <h1 className="sm:text-6xl text-4xl font-bold opacity-[0.8]">Ryusei Teramoto</h1>
+            <p className="sm:text-2xl opacity-[0.7]">Web developer / Front-end engineer</p>
 
-            <div className='text-white flex gap-10 mt-20 ' >
+            <div className='text-white flex gap-10 sm:mt-20 ' >
               <button className='hover:cursor-pointer font-bold  opacity-[0.8] hover:scale-[1.03] transition duration-300 ease-in-out' onClick={handleShowSkills}>SKILLS</button>
               <button className='hover:cursor-pointer font-bold  opacity-[0.8]  hover:scale-[1.03] transition duration-300 ease-in-out' onClick={handleShowProjects}>PROJECTS</button>
 
@@ -91,7 +91,8 @@ function App() {
           </AnimatePresence>
         </div>
 
-        <Contact/>
+{!skills && !projects && <Contact/>}
+        
 
       </div>
 
