@@ -41,6 +41,7 @@ const CanvasBackground = () => {
     gltfLoader.load("./models/scene.gltf", (gltf) => {
       model = gltf.scene
       model.scale.set(2, 2, 2)
+      
 
       scene.add(model)
 
