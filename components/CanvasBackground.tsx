@@ -121,9 +121,14 @@ camera.position.y = THREE.MathUtils.lerp(camera.position.y, 5 + target.y, smooth
   return (
    <>
     <canvas
-        id="canvas"
-        className="fixed top-0 left-0 w-full h-full z-0 bg-[linear-gradient(90deg,rgba(42,123,155,1)_0%,rgba(83,192,135,1)_45%,rgba(87,199,133,1)_50%,rgba(237,221,83,1)_100%)]"
-      />
+  id="canvas"
+  className="
+    fixed top-0 left-0 w-full h-full z-0
+    bg-[linear-gradient(90deg,rgba(42,123,155,1)_0%,rgba(83,192,135,1)_45%,rgba(87,199,133,1)_50%,rgba(237,221,83,1)_100%)]
+    bg-[length:200%_200%]
+    animate-[gradientMove_8s_ease_infinite]
+  "
+/>
       </>
   )
 }
