@@ -7,19 +7,7 @@ const Skills = () => {
     
 
   return (
-    //   <div className='text-white mt-[25%] ml-[40%]'>
-    //           <h2 className='sm:text-4xl text-lg mb-10 '>SKILLS</h2>
-    //           {skillsList?.map((skill, index) => (
-    //             <motion.li
-    //               whileHover={{ scale: 1.02, color: "#7FFFD4" }}
-    //               transition={{ type: "spring", stiffness: 300 }}
-    //               className="cursor-default my-4 list-none"
-    //               key={index}
-    //             >
-    //               {skill}
-    //             </motion.li>
-    //           ))}
-    //         </div>
+    
 <div
   className="
     text-white 
@@ -28,7 +16,7 @@ const Skills = () => {
   "
 >
      <h2 className='sm:text-4xl text-2xl font-semibold text-center sm:text-left  mb-15 '>SKILLS</h2>
-    <div className='  grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 
+    <div className='  grid grid-cols-3 md:grid-cols-4 gap-4 
     place-items-center sm:gap-10'>
   {skillsList?.map((skill, index) => (
     <motion.li

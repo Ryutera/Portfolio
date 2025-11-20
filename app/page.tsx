@@ -33,7 +33,8 @@ function App() {
 
   }
 
- 
+  console.log(skills, "s")
+  console.log(projects, "p")
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
