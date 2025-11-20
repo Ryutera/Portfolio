@@ -8,7 +8,9 @@ import {
   useScroll,
   MotionValue,
 } from "framer-motion";
+
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 
 export default function Projects() {
@@ -34,12 +36,12 @@ export default function Projects() {
       </h2>
 
       {/* Container */}
-      <div id="example" className="space-y-6">
+      <div id="example" className="space-y-2 sm:space-y-6">
         {/* Progress circle */}
         <div className="flex justify-center sm:justify-start">
           <svg
             viewBox="0 0 100 100"
-            className="h-14 w-14 sm:h-20 sm:w-20"
+            className="h-10 w-10 sm:h-20 sm:w-20"
             aria-hidden
           >
             <circle
@@ -95,7 +97,9 @@ export default function Projects() {
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <h3 className="text-white text-base sm:text-lg font-semibold">
+                    <Link href={item.link}> 
                     {item.name}
+                    </Link>
                   </h3>
                 </div>
               </div>
@@ -135,28 +139,31 @@ export default function Projects() {
 
 /* プロジェクトリスト */
 const ITEMS = [
+   {
+    name: "Vintage Clothing E-Commerce Site",
+    image: "/projects/MyShop.png",
+    skills: ["Next.js", "TypeScript", "Supabase", "Prisma ORM", "Stripe"],
+    link:"https://my-shop-blond-ten.vercel.app",
+    description:
+      "A vintage clothing e-commerce site built with Next.js as a full-stack application. It uses Supabase and Prisma for data and authentication, Contentful as a headless CMS for product management, and Stripe for secure checkout with dynamic pricing based on the user’s country."
+    
+  },
   {
     name: "GigLink",
     image: "/projects/GigLink.png",
     skills: ["Next.js", "TypeScript", "Prisma ORM", "Supabase", "Clerk"],
+    link:"https://gig-link-navy.vercel.app/",
     description:
-      "A live house matching platform where musicians can find and apply for gigs. Built with Next.js, TypeScript, and Supabase.",
+      "GigLink is a platform where musicians can create, manage, and join small live music events. It is built with Next.js and TypeScript, using Clerk for authentication, Supabase and Prisma for data management, and the Google Maps API to display event locations on an interactive map.",
   },
-  {
-    name: "MyShop",
-    image: "/projects/MyShop.png",
-    skills: ["Next.js", "TypeScript", "Supabase", "Prisma ORM", "Stripe"],
-    description:
-      "An e-commerce demo project using Stripe payments and Supabase backend."
-    
-  },
-  {
-    name: "Portfolio",
-    image: "/projects/MyShop.png",
-    skills: ["React.js", "Three.js", "Framer Motion"],
-    description:
-      "A personal 3D interactive portfolio site made with React and Three.js.",
-  },
+ 
+  // {
+  //   name: "Portfolio",
+  //   image: "/projects/MyShop.png",
+  //   skills: ["React.js", "Three.js", "Framer Motion"],
+  //   description:
+  //     "A personal 3D interactive portfolio site made with React and Three.js.",
+  // },
 ];
 
 /* スクロールフェード効果 */

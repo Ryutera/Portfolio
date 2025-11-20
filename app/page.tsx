@@ -33,8 +33,7 @@ function App() {
 
   }
 
-  console.log(skills, "s")
-  console.log(projects, "p")
+ 
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -51,7 +50,6 @@ function App() {
             <div className='text-white flex gap-10 sm:mt-20 ' >
               <button className='hover:cursor-pointer font-bold  opacity-[0.8] hover:scale-[1.03] transition duration-300 ease-in-out' onClick={handleShowSkills}>SKILLS</button>
               <button className='hover:cursor-pointer font-bold  opacity-[0.8]  hover:scale-[1.03] transition duration-300 ease-in-out' onClick={handleShowProjects}>PROJECTS</button>
-
             </div>
 
           </main>
@@ -91,10 +89,11 @@ function App() {
           </AnimatePresence>
         </div>
 
-{!skills && !projects && <Contact/>}
-        
+
+         {!skills && !projects && <Contact/>}
 
       </div>
+     
 
       <footer className="text-xs text-gray-800 bottom-[3%] text-right z-15 mr-1 relative">
         3D model: "Old Computers" by Rafael Rodrigues (CC BY 4.0)

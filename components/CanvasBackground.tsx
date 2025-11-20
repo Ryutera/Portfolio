@@ -30,7 +30,7 @@ const CanvasBackground = () => {
      
 
     } else {
-      camera.position.set(0, 5, 9);  // PC
+      camera.position.set(0, 30, 9);  // PC
     }
     camera.updateProjectionMatrix();
   };

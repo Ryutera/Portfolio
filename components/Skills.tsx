@@ -3,7 +3,7 @@ import {
   motion
 } from "framer-motion";
 const Skills = () => {
-    const skillsList = ["HTML", "CSS", "JavaScript", "React", "Next.js", "TypeScript", "Node.js", "Supabase", "Tailwind CSS", "Prisma ORM", "Clerk", "Three.js"]
+    const skillsList = ["HTML", "CSS", "JavaScript", "React.js", "Next.js", "TypeScript", "Node.js", "Supabase", "Tailwind CSS", "Prisma ORM", "Clerk", "Three.js"]
     
 
   return (
