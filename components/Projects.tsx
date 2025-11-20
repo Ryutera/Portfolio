@@ -8,6 +8,7 @@ import {
   useScroll,
   MotionValue,
 } from "framer-motion";
+import { Github } from "lucide-react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -74,7 +75,7 @@ export default function Projects() {
             "[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
           ].join(" ")}
         >
-          {ITEMS.map((item, index) => (
+          {ITEMS?.map((item, index) => (
             <li
               key={index}
               className="
@@ -97,8 +98,8 @@ export default function Projects() {
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                   <h3 className="text-white text-base sm:text-lg font-semibold">
-                    <Link href={item.link}> 
-                    {item.name}
+                    <Link href={item.link}>
+                      {item.name}
                     </Link>
                   </h3>
                 </div>
@@ -128,6 +129,24 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+
+                {item.githubUrl && (
+                  <div className="
+          inline-flex items-center
+          text-[11px] sm:text-xs
+          px-3 py-1
+          rounded-full
+          border border-white/20
+          hover:border-white/60
+          hover:bg-white/10
+          hover:cursor-pointer
+          transition
+        ">
+                    <Link href={item?.githubUrl}>
+                      <span >View on GitHub</span>
+                    </Link>
+                  </div>
+                )}
               </div>
             </li>
           ))}
@@ -137,33 +156,38 @@ export default function Projects() {
   );
 }
 
+
+interface ItemsType {
+  name:string
+  image:string
+   skills:string[]
+   link:string
+   githubUrl?:string
+   description:string
+}
 /* プロジェクトリスト */
-const ITEMS = [
-   {
+const ITEMS:ItemsType[] = [
+  {
     name: "Vintage Clothing E-Commerce Site",
     image: "/projects/MyShop.png",
     skills: ["Next.js", "TypeScript", "Supabase", "Prisma ORM", "Stripe"],
-    link:"https://my-shop-blond-ten.vercel.app",
+    link: "https://my-shop-blond-ten.vercel.app",
+    githubUrl: "https://github.com/Ryutera/my-shop",
     description:
       "A vintage clothing e-commerce site built with Next.js as a full-stack application. It uses Supabase and Prisma for data and authentication, Contentful as a headless CMS for product management, and Stripe for secure checkout with dynamic pricing based on the user’s country."
-    
+
   },
   {
     name: "GigLink",
     image: "/projects/GigLink.png",
     skills: ["Next.js", "TypeScript", "Prisma ORM", "Supabase", "Clerk"],
-    link:"https://gig-link-navy.vercel.app/",
+    link: "https://gig-link-navy.vercel.app/",
+    githubUrl: "https://github.com/Ryutera/GigLink",
     description:
       "GigLink is a platform where musicians can create, manage, and join small live music events. It is built with Next.js and TypeScript, using Clerk for authentication, Supabase and Prisma for data management, and the Google Maps API to display event locations on an interactive map.",
   },
- 
-  // {
-  //   name: "Portfolio",
-  //   image: "/projects/MyShop.png",
-  //   skills: ["React.js", "Three.js", "Framer Motion"],
-  //   description:
-  //     "A personal 3D interactive portfolio site made with React and Three.js.",
-  // },
+
+
 ];
 
 /* スクロールフェード効果 */
