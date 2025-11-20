@@ -42,7 +42,7 @@ function App() {
       <div className="relative z-10 h-screen">
 
 
-        <div className='grid sm:grid-cols-2'>
+        <div className=' sm:grid-cols-2'>
 
           <main className="flex flex-col sm:gap-15 gap-5 mt-[15%] sm:mt-[35%] ml-[10%]  h-screens text-white">
             <h1 className="sm:text-6xl text-4xl font-bold opacity-[0.8]">Ryusei Teramoto</h1>

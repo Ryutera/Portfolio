@@ -97,7 +97,7 @@ export default function Projects() {
                   className="object-cover w-full h-40 sm:h-48 opacity-80"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                  <h3 className="text-white text-base sm:text-lg font-semibold">
+                  <h3 className="text-white text-sm sm:text-lg font-semibold">
                     <Link href={item.link}>
                       {item.name}
                     </Link>
