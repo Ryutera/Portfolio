@@ -27,19 +27,19 @@ export default function Projects() {
         sm:mt-[20%] 
         mt-[10%] 
         px-4 sm:px-10 md:px-20 
-        fixed sm:relative 
+        relative 
         w-full
       "
     >
       {/* Title */}
-      <h2 className="text-2xl sm:text-4xl font-semibold mb-6 text-center sm:text-left">
+      <h2 className="text-2xl sm:text-4xl font-semibold mb-6 text-center sm:text-left hidden sm:block">
         PROJECTS
       </h2>
 
       {/* Container */}
       <div id="example" className="space-y-2 sm:space-y-6">
         {/* Progress circle */}
-        <div className="flex justify-center sm:justify-start">
+        <div className="flex justify-center sm:justify-start hidden sm:block">
           <svg
             viewBox="0 0 100 100"
             className="h-10 w-10 sm:h-20 sm:w-20"
