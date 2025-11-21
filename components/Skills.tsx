@@ -11,7 +11,7 @@ const Skills = () => {
 <div
   className="
     text-white 
-    mt-[15%] sm:mt-[50%] px-7 
+    mt-[20%] sm:mt-[50%] px-7 
   
   "
 >
