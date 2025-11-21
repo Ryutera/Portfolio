@@ -44,7 +44,7 @@ function App() {
 
         <div className=' sm:grid-cols-2'>
 
-          <main className="flex flex-col sm:gap-15 gap-5 mt-[15%] sm:mt-[35%] ml-[10%]  h-screens text-white">
+          <main className="flex flex-col sm:gap-15 gap-5 mt-[15%] sm:mt-[35%] ml-[10%]  min-h-screens text-white">
             <h1 className="sm:text-6xl text-4xl font-bold opacity-[0.8]">Ryusei Teramoto</h1>
             <p className="sm:text-2xl opacity-[0.7]">Web developer / Front-end engineer</p>
 
