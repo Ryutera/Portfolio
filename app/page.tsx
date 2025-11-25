@@ -37,9 +37,9 @@ function App() {
   console.log(projects, "p")
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-dvh  overflow-hidden">
       <CanvasBackground />
-      <div className="relative z-10 h-screen">
+      <div className="relative z-10 ">
 
 
         <div className='sm:grid sm:grid-cols-2 '>
@@ -96,7 +96,7 @@ function App() {
       </div>
      
 
-      <footer className="text-xs text-gray-800 bottom-[3%] text-right z-15 mr-1 relative">
+      <footer className="text-xs text-gray-800 bottom-[2%] right-[1%] w-full text-right z-15 mr-1 absolute">
         3D model: "Old Computers" by Rafael Rodrigues (CC BY 4.0)
       </footer>
     </div>
