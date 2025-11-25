@@ -8,10 +8,10 @@ const Contact = () => {
    
 
   return (
-   <div className='flex justify-center pt-5  sm:mt-35 mt-[120%] gap-5 text-white opacity-[0.5]'>
-         <Link href="https://github.com/Ryutera"><Github /></Link>
-          <Link href="mailto:teratera0312@icloud.com"> <Mail /></Link>
-        </div>
+  <div className="fixed sm:bottom-14 buttom-8 left-0 right-0 z-20 flex justify-center gap-5 text-white opacity-50">
+      <Link href="https://github.com/Ryutera"><Github /></Link>
+      <Link href="mailto:teratera0312@icloud.com"><Mail /></Link>
+    </div>
   )
 }
 
