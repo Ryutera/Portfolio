@@ -96,7 +96,7 @@ function App() {
       </div>
      
 
-      <footer className="text-xs text-gray-800 bottom-[2%] right-[1%] w-full text-right z-15 mr-1 absolute">
+      <footer className="fixed text-xs text-gray-800 bottom-[2%] right-[1%] w-full text-right z-15 mr-1 ">
         3D model: "Old Computers" by Rafael Rodrigues (CC BY 4.0)
       </footer>
     </div>
