@@ -50,7 +50,7 @@ function App() {
 
             <div className='text-white flex gap-10 sm:mt-20 ' >
               <button className='hover:cursor-pointer font-bold  opacity-[0.8] hover:scale-[1.03] transition duration-300 ease-in-out' onClick={handleShowSkills}>SKILLS</button>
-              <button className='hover:cursor-pointer font-bold  opacity-[0.8]  hover:scale-[1.03] transition duration-300 ease-in-out' onClick={handleShowProjects}>PROJECTS</button>
+              <button className='hover:cursor-pointer font-bold  opacity-[0.8]  hover:scale-[1.03] transition duration-300 ease-in-out' onClick={handleShowProjects}>PORTFOLIO</button>
             </div>
 
           </main>

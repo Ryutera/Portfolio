@@ -33,7 +33,7 @@ export default function Projects() {
     >
       {/* Title */}
       <h2 className="text-2xl sm:text-4xl font-semibold mb-6 text-center sm:text-left hidden sm:block">
-        PROJECTS
+        PORTFOLIO
       </h2>
 
       {/* Container */}
@@ -167,6 +167,16 @@ interface ItemsType {
 }
 /* プロジェクトリスト */
 const ITEMS:ItemsType[] = [
+    {
+    name: "Peraphrase",
+    image: "/projects/PeraPhrase.png",
+    skills: ["Next.js", "TypeScript", "Supabase", "Prisma ORM", "Stripe"],
+    link: "https://peraphrase.vercel.app",
+    githubUrl: "https://github.com/Ryutera/translation-app",
+    description:
+      "A Japanese language learning and paraphrasing platform built with Next.js 16 as a full-stack application. It leverages OpenAI's GPT-4.1 for natural AI rewriting, Supabase and Prisma for data persistence and authentication, and Stripe for a subscription-based model with real-time usage limit control via Webhooks"
+
+  },
   {
     name: "Vintage Clothing E-Commerce Site",
     image: "/projects/MyShop.png",
@@ -186,6 +196,7 @@ const ITEMS:ItemsType[] = [
     description:
       "GigLink is a platform where musicians can create, manage, and join small live music events. It is built with Next.js and TypeScript, using Clerk for authentication, Supabase and Prisma for data management, and the Google Maps API to display event locations on an interactive map.",
   },
+  
 
 
 ];
